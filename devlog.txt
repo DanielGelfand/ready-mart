@@ -1,0 +1,2 @@
+petersT -- 2018-10-15 23:58
+    created devlog, uploaded plan, created first entry in devlog
