@@ -10,3 +10,7 @@ As a project manager, reading the part about teams being constructed of "crazy p
 ACTIONS TO BE TAKEN BY TEAM:
 1)Use clear variable and function names so that the other team members can understand what is going on. On the same note include comments that explain your code as often as possible.
 2)Do not forget to utilize the devlog. As a team we have to be able to work together and maintaining the devlog will improve our workflow since it tells the team what was accomplished/needs work. 
+
+rachlevskyM -- 2018-10-17 10:40
+response:
+I found the article very interestesing, but I didn't like how negative he was in regard to teamwork. I think collaboration is extremely important and a great way to learn. I get that sometimes it's difficult to work with other people but it's a very essential skill to have and I have a much more positive outlook on teamwork. For this project, we need to focus on communication and how to best and most efficiently work together.
