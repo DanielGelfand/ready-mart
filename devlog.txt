@@ -1,2 +1,4 @@
 petersT -- 2018-10-15 23:58
     created devlog, uploaded plan, created first entry in devlog
+rayO -- 2018-10-16 23:53
+    uploaded revised design doc, component map, database schema and site map clarified & improved, tentative deadlines added
