@@ -17,3 +17,6 @@ I found the article very interestesing, but I didn't like how negative he was in
 
 NarangA -- 2018-10-17 12:13
     response: I think that this may because of the relatively sheltered and privileged coding life I've led so far, but I haven't found his experience using software made by 'dicks' to be true for myself. I've been fortunate enough to work off the shoulders of giants, per se, and create software thanks to the massive support of others. 
+
+NarangA -- 2018-10-17 13:09
+    created database and tables
