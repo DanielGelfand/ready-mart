@@ -1,22 +1,78 @@
-petersT -- 2018-10-15 23:58
-    created devlog, uploaded plan, created first entry in devlog
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+USAGE:
+* Replace all fields, angle brackets included, with specified info.
+  eg, pd <pd#> --> pd 3
+* Delete these instructions once all teammates understand usage.
+  (from tilde bar above to tilde bar below)
+* rename this file devlog.txt
+
+devlog--
+Use keyboard shortcut to jump to end,
+ replicate entry template, (Ctrl-Shift up x5, Ctrl-X, Ctrl-V x2)
+ modify appropriately.
+Each entry should begin with the following format:
+ firstL -- TIMESTAMP\n
+e.g.: 
+clydeS -- 2999-12-31 23:59
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+MART
+Ray Onishi
+Amit Narang
+Theodore Peters 
+Mai Rachlevsky
+pd 07
+---------------------
+Collaborative Storytelling Website.
+
+
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+fristL -- TIMESTAMP
+--------------------------------------------------------------
+<Thing fristL did.>
+==============================================================
+
+theodoreP -- 2018-10-15 23:58
+--------------------------------------------------------------
+created devlog, uploaded plan, created first entry in devlog
+==============================================================
 
 rayO -- 2018-10-16 23:53
+--------------------------------------------------------------
 uploaded revised design doc, component map, database schema and site map clarified & improved, tentative deadlines added
+==============================================================
 
 rayO -- 2018-10-17 06:43
+--------------------------------------------------------------
 response:
 As a project manager, reading the part about teams being constructed of "crazy people" puts into perspective the type of issues that one may face when dealing with all sorts of people from all different backgrounds and of different skills. Having the bridge analogy made me realize that for my team, I have to be able to step up and make sure things go as smoothly as possible, our team already ran into one bump and I need to be prepared to face anymore to come. The part about the 1/0 as well, it highlights how misunderstandings of code can lead to unexpected changes that may break the code. It ties back into the idea of good code, where variables and function names should be clear and documented. 
 ACTIONS TO BE TAKEN BY TEAM:
 1)Use clear variable and function names so that the other team members can understand what is going on. On the same note include comments that explain your code as often as possible.
 2)Do not forget to utilize the devlog. As a team we have to be able to work together and maintaining the devlog will improve our workflow since it tells the team what was accomplished/needs work. 
+==============================================================
 
-rachlevskyM -- 2018-10-17 10:40
+maiR -- 2018-10-17 10:40
+--------------------------------------------------------------
 response:
 I found the article very interestesing, but I didn't like how negative he was in regard to teamwork. I think collaboration is extremely important and a great way to learn. I get that sometimes it's difficult to work with other people but it's a very essential skill to have and I have a much more positive outlook on teamwork. For this project, we need to focus on communication and how to best and most efficiently work together.
+==============================================================
 
-NarangA -- 2018-10-17 12:13
+amitN -- 2018-10-17 12:13
+--------------------------------------------------------------
     response: I think that this may because of the relatively sheltered and privileged coding life I've led so far, but I haven't found his experience using software made by 'dicks' to be true for myself. I've been fortunate enough to work off the shoulders of giants, per se, and create software thanks to the massive support of others. 
+==============================================================
 
-NarangA -- 2018-10-17 13:09
+amitN -- 2018-10-17 13:09
+--------------------------------------------------------------
     created database and tables
+==============================================================
