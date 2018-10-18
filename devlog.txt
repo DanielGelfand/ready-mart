@@ -71,12 +71,6 @@ amitN -- 2018-10-17 12:13
 --------------------------------------------------------------
     response: I think that this may because of the relatively sheltered and privileged coding life I've led so far, but I haven't found his experience using software made by 'dicks' to be true for myself. I've been fortunate enough to work off the shoulders of giants, per se, and create software thanks to the massive support of others.
 ==============================================================
-
-amitN -- 2018-10-17 13:09
---------------------------------------------------------------
-    created database and tables
-==============================================================
-
 amitN -- 2018-10-17 1:15
 --------------------------------------------------------------
     added starter kit, began creating the Flask app
