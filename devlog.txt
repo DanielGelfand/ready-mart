@@ -64,14 +64,20 @@ ACTIONS TO BE TAKEN BY TEAM:
 maiR -- 2018-10-17 10:40
 --------------------------------------------------------------
 response:
-I found the article very interestesing, but I didn't like how negative he was in regard to teamwork. I think collaboration is extremely important and a great way to learn. I get that sometimes it's difficult to work with other people but it's a very essential skill to have and I have a much more positive outlook on teamwork. For this project, we need to focus on communication and how to best and most efficiently work together.
+I found the article very interesting, but I didn't like how negative he was in regard to teamwork. I think collaboration is extremely important and a great way to learn. I get that sometimes it's difficult to work with other people but it's a very essential skill to have and I have a much more positive outlook on teamwork. For this project, we need to focus on communication and how to best and most efficiently work together.
 ==============================================================
 
-amitN -- 2018-10-17 12:13
+amitN -- 2018-10-18 12:13
 --------------------------------------------------------------
     response: I think that this may because of the relatively sheltered and privileged coding life I've led so far, but I haven't found his experience using software made by 'dicks' to be true for myself. I've been fortunate enough to work off the shoulders of giants, per se, and create software thanks to the massive support of others.
 ==============================================================
-amitN -- 2018-10-17 1:15
+
+amitN -- 2018-10-18 1:15
 --------------------------------------------------------------
     added starter kit, began creating the Flask app
+==============================================================
+
+amitN -- 2018-10-19 1:12
+--------------------------------------------------------------
+    laid out routes for app, cleaned up file
 ==============================================================
