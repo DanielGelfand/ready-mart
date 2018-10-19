@@ -72,12 +72,17 @@ amitN -- 2018-10-18 12:13
     response: I think that this may because of the relatively sheltered and privileged coding life I've led so far, but I haven't found his experience using software made by 'dicks' to be true for myself. I've been fortunate enough to work off the shoulders of giants, per se, and create software thanks to the massive support of others.
 ==============================================================
 
-amitN -- 2018-10-18 1:15
+amitN -- 2018-10-18 13:15
 --------------------------------------------------------------
     added starter kit, began creating the Flask app
 ==============================================================
 
-amitN -- 2018-10-19 1:12
+amitN -- 2018-10-19 13:12
 --------------------------------------------------------------
     laid out routes for app, cleaned up file
+==============================================================
+
+theodoreP -- 2018-10-18 13:18
+--------------------------------------------------------------
+    yadda yadda, can add to, read from stories (adding also updates history)
 ==============================================================
