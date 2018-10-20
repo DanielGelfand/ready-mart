@@ -86,3 +86,10 @@ theodoreP -- 2018-10-18 13:18
 --------------------------------------------------------------
     yadda yadda, can add to, read from stories (adding also updates history)
 ==============================================================
+
+theodoreP -- 2018-10-20 18:43
+--------------------------------------------------------------
+    more methods to interact with database
+    made the important discovery that project assignments are listed on the homework page differently than homework assignments as the newest project assignments appear at the bottom of the list, rather than the top.
+    late response: I can understand what the fella is talking about the pointless conflicting style standards and incentives for creating hacky shortcuts in code, and then never bothering to update this code. HHowever, I don't think people in programming are necessarily stupid or jerks, just that functional code doesn't need to pretty if someone assumes they will be the only person to ever read it. our group can alleviate the issues of conflicting style ideas etc. by properly compartamentalizing our code and designating different code to different people, and agreeing on some basic universal style standards such as reasonable variable names etc..
+==============================================================
