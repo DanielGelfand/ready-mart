@@ -1,15 +1,16 @@
-<html>
-  <head>
-    <title> Add a Story</title>
-  </head>
-  <body>
-    Write a story
-    <form action = "/add" method="POST">
-     Make title: <input type = "text" name="title">
-      <br> 
-     Write story: <input type = "text" name="content">
-      <br> 
-      <input type = "submit" name="create">
-     </form>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block head %}
+<title>Add Stories</title>
+{% endblock %}
+
+{% block content %}
+    Create a story <br><br>
+    <form action="/profile" method="POST">
+      Title: <input type="text" name="title"> <br>
+      Content: <input type="text" name="content"> <br>
+      Create: <input type="submit" name="create"> <br>
+    </form>
+    {% endblock %}
+
+
+
