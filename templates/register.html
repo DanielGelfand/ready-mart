@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Register</title>
+{% endblock %}
+
+{% block content %}
+<h2> Register an account </h2>
+<form action="/register" method="POST">
+  Username: <input type="text" name="username"> <br>
+  Password: <input type="password" name="password"> <br>
+  Confirm password <input type="password" name="password2"> <br>
+  <input type="submit" name="register">
+</form>
+{% set msgs = get_flashed_messages() %}
+{% for each in msgs %}
+{% if each %}
+  <strong> Uh oh there was an error, {{each}}</strong>
+{% endif %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Edit Stories</title>
+{% endblock %}
+
+{% block content %}
+       <form action = "/profile">
+	 choose a story: {{stories}} <br>
+      Write edit <input type = "text" name="content">
+      <input type = "submit" name="edited">
+       </form>
+       
+    {% endblock %}
+
+
+
+
+
+
+
