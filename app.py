@@ -67,21 +67,35 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/userHome", methods=["POST"])
+@app.route("/userHome")
 def userHome():
     return render_template("userHome.html")
 
-@app.route("/add", methods=["POST"])
+@app.route("/add",methods=["GET","POST"])
 def add():
+    if request.method == "POST":
+        contrib = request.form["content"]
+        db = sqlite3.connect('stories.db')
+        c = db.cursor()
+        forID = c.execute("SELECT storyid FROM stories ORDER BY storyid DESC LIMIT 1")
+        id = forID.fetchone()[0]
+        val = session["user"]
+        currID = c.execute("SELECT userid FROM users WHERE username = ?",(val,))
+        dbtools.add_story(c,id+1,contrib,currID)
+        # put all the code to handle what you want with creating a story here
+        # after you do all that code just redirect to userHome or something
+        return redirect(url_for('userHome'))
+
     return render_template("add_story.html")
 
-@app.route("/edit", methods=["POST"])
+@app.route("/edit")
 def edit():
     return render_template("edit_stories.html")
 
 @app.route("/logout")
 def logout():
     session.pop("user")
+
     return redirect(url_for('home'))
 
 if __name__ == "__main__":

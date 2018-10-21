@@ -1,7 +1,7 @@
 import sqlite3
 
 # Come to the computer interaction club. #
-
+#squul is cursor
 def reset(squul):
     squul.execute("DROP TABLE IF EXISTS stories;")
     squul.execute("DROP TABLE IF EXISTS history;")

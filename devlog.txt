@@ -91,13 +91,20 @@ theodoreP -- 2018-10-20 18:43
 --------------------------------------------------------------
     more methods to interact with database
     made the important discovery that project assignments are listed on the homework page differently than homework assignments as the newest project assignments appear at the bottom of the list, rather than the top.
-    late response: I can understand what the fella is talking about the pointless conflicting style standards and incentives for creating hacky shortcuts in code, and then never bothering to update this code. HHowever, I don't think people in programming are necessarily stupid or jerks, just that functional code doesn't need to pretty if someone assumes they will be the only person to ever read it. our group can alleviate the issues of conflicting style ideas etc. by properly compartamentalizing our code and designating different code to different people, and agreeing on some basic universal style standards such as reasonable variable names etc..
+    late response: I can understand what the fella is talking about the pointless conflicting style standards and incentives for creating hacky shortcuts in code, and then never bothering to update this code. HHowever, I don't think people in programming are necessarily stupid or jerks, just that functional code doesn't need to pretty if someone assumes they will be the only person to ever read it. our group can alleviate the issues of conflicting style ideas etc. by properly compartmentalizing our code and designating different code to different people, and agreeing on some basic universal style standards such as reasonable variable names etc..
 ==============================================================
 
 rayO -- 2018-10-20 23:52
 --------------------------------------------------------------
-Added methods to bazinga.py for user auth (user_exists and check_user).
-Moved bazinga to utils
-Added and modified templates made by Mai.
-User auth works, users have the ability to login and signup. The code also checks for bad passwords/usernames.
+    Added methods to bazinga.py for user auth (user_exists and check_user).
+    Moved bazinga to utils
+    Added and modified templates made by Mai.
+    User auth works, users have the ability to login and signup. The code also checks for bad passwords/usernames.
+==============================================================
+
+amitN -- 2018-10-21 19:58
+--------------------------------------------------------------
+    Tweaked login authentications to ensure that multiple user accounts can be validated
+    Enabled adding a story
+    Created Logout mechanism
 ==============================================================
