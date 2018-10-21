@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     if "username" not in session.keys():
-        return redirect(url_for("login"))
+        return redirect(url_for("login/"))
     return render_template("add_story.html")
 
 @app.route("/login", methods=["POST", "GET"])
