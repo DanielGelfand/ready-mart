@@ -29,8 +29,8 @@ def can_edit(squul, storyid, userid):
     squul.execute("SELECT {} FROM history WHERE history.userid = {};".format('s' + str(storyid), userid))
     return squul.fetchall()[0][0] == 0
 
-def add_story(squul, storyid, shrext, userid):
-    squul.execute("INSERT INTO stories VALUES(?, ?, ?);", (storyid, None, shrext))
+def add_story(squul, storyid, shrext, userid,title):
+    squul.execute("INSERT INTO stories VALUES(?, ?, ?);", (storyid, title, shrext))
     squul.execute("ALTER TABLE history ADD COLUMN {} INTEGER DEFAULT 0;".format('s' + str(storyid)))
     squul.execute("UPDATE history SET {} = 1 WHERE history.userid = {};".format('s' + str(storyid), userid))
 

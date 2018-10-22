@@ -108,3 +108,9 @@ amitN -- 2018-10-21 19:58
     Enabled adding a story
     Created Logout mechanism
 ==============================================================
+
+amitN -- 2018-10-22 13:10
+--------------------------------------------------------------
+    Fixed bug in adding story
+    Modified DB function for adding titles to stories
+==============================================================

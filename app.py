@@ -69,19 +69,24 @@ def register():
 
 @app.route("/userHome")
 def userHome():
-    return render_template("userHome.html")
+    return render_template("userHome.html",username = session["user"])
 
 @app.route("/add",methods=["GET","POST"])
 def add():
     if request.method == "POST":
+        title = request.form["title"]
         contrib = request.form["content"]
         db = sqlite3.connect('stories.db')
         c = db.cursor()
         forID = c.execute("SELECT storyid FROM stories ORDER BY storyid DESC LIMIT 1")
         id = forID.fetchone()[0]
-        val = session["user"]
-        currID = c.execute("SELECT userid FROM users WHERE username = ?",(val,))
-        dbtools.add_story(c,id+1,contrib,currID)
+        #print(session["user"])
+        #val = session["user"]
+        currID = c.execute("SELECT userid FROM users WHERE username = ?",(session["user"],)).fetchone()[0]
+        print(currID)
+        dbtools.add_story(c,id+1,contrib,currID,title)
+        db.commit()
+        db.close()
         # put all the code to handle what you want with creating a story here
         # after you do all that code just redirect to userHome or something
         return redirect(url_for('userHome'))
