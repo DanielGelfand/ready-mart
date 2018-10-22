@@ -93,9 +93,22 @@ def add():
 
     return render_template("add_story.html")
 
-@app.route("/edit")
+@app.route("/choose")
 def edit():
-    return render_template("edit_stories.html")
+    return render_template("edit_stories.html", stories = {'1':'title1','2':'title2'}) 
+
+
+@app.route("/edit", methods=["POST"])
+def edit_story():
+    return render_template("edit_story.html", story = ['storyid1','story_title','story_content'])
+
+@app.route("/stories",methods=["GET","POST"])
+def stories():
+    return render_template("view_stories.html", stories = {'1':'title1','2':'title2'})
+
+@app.route("/view/<int:storyid>")
+def view(storyid):
+    return render_template("view_story.html", story = ['storyid1','story_title','story_content']) 
 
 @app.route("/logout")
 def logout():

@@ -4,10 +4,17 @@
 {% endblock %}
 
 {% block content %}
-       <form action = "/profile">
-	 choose a story: {{stories}} <br>
-      Write edit <input type = "text" name="content">
-      <input type = "submit" name="edited">
-       </form>
+       <form action = "/edit" method="POST">
+	 choose a story to edit:
+	 <br>
+	 {% for key, value in stories.items() %}
+	 <input type="radio" name="storyid" value={{key}}> {{value}}
+	 <br>
+	 {% endfor %}
+	 <input type="submit" name="edit">
+	 
+	 
 
+       </form>
+       
     {% endblock %}
