@@ -4,6 +4,8 @@ running with python3, flask, wheel, and passlib.
 
 sqlite3 should be installed by default in python3
 
+on linux:
+
 ```bash
 $ python3 -m venv h/
 
