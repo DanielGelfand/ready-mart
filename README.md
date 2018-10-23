@@ -1,9 +1,9 @@
 # ready-mart 
-Amit Narang, Ray Onishi, Theodore Peters, Mai Rachlevsky
+*M*ai Rachlevsky, *A*mit Narang, *R*ay Onishi, *T*heodore Peters 
 
 # Dependencies: 
 Runs with python3, flask, wheel, and passlib.
-Python 3 and SQLite 3 are both required. SQLite 3 comes installed with python 3 so given you have python 3 installed, the program should work fine.
+Also runs SQLite3, which comes installed with python3.
 
 If you have not yet set up a virtual environment, refer to the **setup** section.
 In your virtual environment, make sure to run the following:
@@ -22,16 +22,17 @@ $ pip3 install passlib
 ```
 $ git clone git@github.com:anotherLostKitten/ready-mart.git 
 ```
-2. Activate your virtual environment
+2. Create & activate your virtual environment, install packages (see above).
 ```
-$ . venv/bin/activate
+$ python3 -m venv h
+$ . h/bin/activate
 ```
 3. Go to the project directory
 ```
-(venv) $ cd ready-mart
+(h) $ cd ready-mart
 ```
 4. Run app.py
 ```
-(venv) $ python3 app.py 
+(h) $ python3 app.py 
 ```
 5. Navigate to `localhost:5000` on your web browser
