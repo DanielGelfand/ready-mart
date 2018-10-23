@@ -114,3 +114,9 @@ amitN -- 2018-10-22 13:10
     Fixed bug in adding story
     Modified DB function for adding titles to stories
 ==============================================================
+
+theodoreP -- 2018-10-22 10:16
+--------------------------------------------------------------
+   venv package installation info in readme
+   (for linux only, if anyone using a mac/pc would like to document how they got venv working, go ahead)
+==============================================================
