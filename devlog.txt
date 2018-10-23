@@ -119,4 +119,9 @@ theodoreP -- 2018-10-22 10:16
 --------------------------------------------------------------
    venv package installation info in readme
    (for linux only, if anyone using a mac/pc would like to document how they got venv working, go ahead)
+   comments to sql helper functions
+
+   TODO -- parse user input for html/sql trickery
+        -- currently, editors will be unable to see story title, only visible when reading story.
+	   create a seperate field for title in database?
 ==============================================================
