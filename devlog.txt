@@ -125,3 +125,8 @@ theodoreP -- 2018-10-22 10:16
         -- currently, editors will be unable to see story title, only visible when reading story.
 	   create a seperate field for title in database?
 ==============================================================
+
+theodoreP -- 2018-10-22 23:09
+--------------------------------------------------------------
+    make file for easier setup / running (wgiyts)
+==============================================================
