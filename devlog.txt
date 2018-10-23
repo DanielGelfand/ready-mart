@@ -130,3 +130,8 @@ theodoreP -- 2018-10-22 23:09
 --------------------------------------------------------------
     make file for easier setup / running (wgiyts)
 ==============================================================
+
+maiR -- 2018-10-22 23:45
+--------------------------------------------------------------
+    Added templates for viewing and editing stories. Fixed userHome template and adjusted app.py for the templates
+==============================================================
