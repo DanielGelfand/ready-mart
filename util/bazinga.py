@@ -32,8 +32,8 @@ def hole_story(squul, storyid):
 def edit_story(squul, storyid, shrext, userid):
     if can_edit(squul, storyid, userid):
         squul.execute("UPDATE stories SET content = ? WHERE stories.storyid = ?;", (hole_story(squul, storyid), storyid))
-        squul.execute("UPDATE stories SET lastedit = ? WHERE stories.storyid = ?;", (shrext, storyid))
-        squul.execute("UPDATE history SET {} = '.' WHERE history.userid = {};".format('s' + str(storyid), userid))
+        squul.execute("UPDATE stories SET lastedit = ? WHERE stories.storyid = ?;", (foo_char_html(shrext), storyid))
+        squul.execute("UPDATE history SET {} = 1 WHERE history.userid = {};".format('s' + str(storyid), userid))
 
 
 # returns whether a user should be in editing mode for a particular story
@@ -47,35 +47,41 @@ def can_edit(squul, storyid, userid):
 # TODO: currently, people editing story will be unable to see title -- is this our prefered functionality??
 # could keep as is, or add seperate title field to display story title.
 def add_story(squul, storyid, shrext, userid, title):
-    squul.execute("INSERT INTO stories VALUES(?, ?, ?);", (storyid, title, shrext))
+    squul.execute("INSERT INTO stories VALUES(?, ?, ?);", (storyid, foo_char_html(title), foo_char_html(shrext)))
     squul.execute("ALTER TABLE history ADD COLUMN {} INTEGER DEFAULT 0;".format('s' + str(storyid)))
     squul.execute("UPDATE history SET {} = 1 WHERE history.userid = {};".format('s' + str(storyid), userid))
 
 # creates entries for a new user, both for user and in history database
 def add_user(squul, userid, username, hashword):
-    squul.execute("INSERT INTO users VALUES(?, ?, ?);", (userid, username, hashword))
+    squul.execute("INSERT INTO users VALUES(?, ?, ?);", (userid, foo_char_html(username), hashword))
     squul.execute("INSERT INTO history (userid) VALUES(?);", (userid,));
 
 # validates a username exists
 def user_exists(squul, user):
-    exist = squul.execute("SELECT EXISTS(SELECT 1 FROM users WHERE username = ?);", (user,))
+    exist = squul.execute("SELECT EXISTS(SELECT 1 FROM users WHERE username = ?);", (foo_char_html(user),))
     return exist.fetchone()[0] == 1
 
 # checks if user's password valid
 def check_user(squul, user, pword):
-    toCheck = squul.execute("SELECT password from users WHERE username = ?;", (user,))
+    toCheck = squul.execute("SELECT password from users WHERE username = ?;", (foo_char_html(user),))
     return toCheck.fetchone()[0] == pword
 
-# old unit tests:
+# string parsing for rude trickery
+def foo_char_html(inp):
+    return inp.replace('&', '&amp').replace('<', '&lt').replace('>', '&gt')
 
-# if __name__ == "__main__":
-#     db = sqlite3.connect('stories.db')
-#     c = db.cursor()
-#     add_user(c, 1, "Mr. Kats", "qwerty")
-#     add_story(c, 1, "hello does this website work",  1)
-#     edit_story(c, 1, "wait i forgot to actually write a story", 1)
-#     add_user(c, 2, "Mr. Kats' alt account", "qwertzu")
-#     edit_story(c, 1, "i will circumvent this story editing restriction with an alt account", 2)
-#     print(hole_story(c, 1))
-#     db.commit()
-#     db.close()
+# unit tests:
+
+if __name__ == "__main__":
+    db = sqlite3.connect('stories-test.db')
+    c = db.cursor()
+    reset(c)
+#    add_user(c, 1, "Mr. Kats", "qwerty")
+ #   add_story(c, 1, "hello does this website work",  1, 'title title title')
+  #  edit_story(c, 1, "wait i forgot to actually write a story", 1)
+   # add_user(c, 2, "Mr. Kats' alt account", "qwertzu")
+    #edit_story(c, 1, "i will circumvent this story editing restriction with an alt account", 2)
+   # print(hole_story(c, 1))
+    db.commit()
+    db.close()
+    print(foo_char_html("<br/>&copy<source>hello</source>"))
