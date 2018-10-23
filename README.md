@@ -8,8 +8,8 @@ Also runs SQLite3, which comes installed with python3.
 If you have not yet set up a virtual environment, refer to the **setup** section.
 In your virtual environment, make sure to run the following:
 
-# Setup
-Clone the repo and run `$ make setup` to create a venv and install necesarry packages. `$ make remove` to remove later. 
+# Setup:
+Clone the repo and run `$ make setup` to create a venv and install necesarry packages. `$ make remove` to remove. 
 # Launch:
 Run `$ make`.
-Navigate to `localhost:5000` on your web browser
+Navigate to `localhost:5000` on your web browser.
