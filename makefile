@@ -1,6 +1,5 @@
 run: 
 	. h/bin/activate
-	python3 app.py
 setup:
 	python3 -m venv h/
 	. h/bin/activate

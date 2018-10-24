@@ -9,8 +9,8 @@ def reset(squul):
     squul.execute("DROP TABLE IF EXISTS history;")
     squul.execute("DROP TABLE IF EXISTS users;")
 
-    squul.execute("CREATE TABLE stories (storyid INTEGER PRIMARY KEY, content TEXT, lastedit TEXT);")
-    squul.execute("CREATE TABLE history (userid INTEGER PRIMARY KEY);")
+    squul.execute("CREATE TABLE stories (storyid INTEGER PRIMARY KEY, title TEXT, content TEXT, lastedit TEXT);")
+    squul.execute("CREATE TABLE history (storyid INTEGER PRIMARY KEY);")
     squul.execute("CREATE TABLE users (userid INTEGER PRIMARY KEY, username TEXT, password TEXT);")
 
 # last edit of story
@@ -23,7 +23,10 @@ def hole_story(squul, storyid):
     squul.execute("SELECT content, lastedit FROM stories WHERE stories.storyid = ?;", (storyid, ))
     return '\n'.join(str(i) for i in squul.fetchall()[0] if i != None)
 
-
+# retrieve story title 
+def title_story(squul, storyid):
+    squul.execute("SELECT title FROM stories WHERE stories.storyid = ?;", (storyid, ))
+    return squul.fetchall()[0][0]
 # updates last edit and content of story to reflect edit.
 # also updates history to show user has edited story
 
@@ -33,21 +36,24 @@ def edit_story(squul, storyid, shrext, userid):
     if can_edit(squul, storyid, userid):
         squul.execute("UPDATE stories SET content = ? WHERE stories.storyid = ?;", (hole_story(squul, storyid), storyid))
         squul.execute("UPDATE stories SET lastedit = ? WHERE stories.storyid = ?;", (foo_char_html(shrext), storyid))
-        squul.execute("UPDATE history SET {} = 1 WHERE history.userid = {};".format('s' + str(storyid), userid))
+        squul.execute("UPDATE history SET {} = 1 WHERE history.userid = {};".format('u' + str(userid), storyid))
 
 
 # returns whether a user should be in editing mode for a particular story
 # decide whether to display editing mode of story, or which stories to list on users home page.
 def can_edit(squul, storyid, userid):
-    squul.execute("SELECT {} FROM history WHERE history.userid = {};".format('s' + str(storyid), userid))
+    squul.execute("SELECT {} FROM history WHERE history.storyid = {};".format('u' + str(userid), storyid))
     return squul.fetchall()[0][0] == 0
+
+def all_edit(squul, userid):
+    squul.execute("SELECT * FROM stories WHERE stories.storyid = history.storyid AND history.{} = 1;".format('u' + str(userid)))
 
 # creates a new story info in stories and history table
 
 # TODO: currently, people editing story will be unable to see title -- is this our prefered functionality??
 # could keep as is, or add seperate title field to display story title.
 def add_story(squul, storyid, shrext, userid, title):
-    squul.execute("INSERT INTO stories VALUES(?, ?, ?);", (storyid, foo_char_html(title), foo_char_html(shrext)))
+    squul.execute("INSERT INTO stories VALUES(?, ?, ?, ?);", (storyid, foo_char_html(title), None, foo_char_html(shrext)))
     squul.execute("ALTER TABLE history ADD COLUMN {} INTEGER DEFAULT 0;".format('s' + str(storyid)))
     squul.execute("UPDATE history SET {} = 1 WHERE history.userid = {};".format('s' + str(storyid), userid))
 
@@ -55,7 +61,7 @@ def add_story(squul, storyid, shrext, userid, title):
 def add_user(squul, userid, username, hashword):
     squul.execute("INSERT INTO users VALUES(?, ?, ?);", (userid, foo_char_html(username), hashword))
     squul.execute("INSERT INTO history (userid) VALUES(?);", (userid,));
-
+    squul.execute("ALTER TABLE history ADD COLUMN {} INTEGER DEFAULT 0;".format('u' + str(userid)))
 # validates a username exists
 def user_exists(squul, user):
     exist = squul.execute("SELECT EXISTS(SELECT 1 FROM users WHERE username = ?);", (foo_char_html(user),))
@@ -68,12 +74,12 @@ def check_user(squul, user, pword):
 
 # string parsing for rude trickery
 def foo_char_html(inp):
-    return inp.replace('&', '&amp').replace('<', '&lt').replace('>', '&gt')
+    return inp.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
 # unit tests:
 
 if __name__ == "__main__":
-    db = sqlite3.connect('stories-test.db')
+    db = sqlite3.connect('stories.db')
     c = db.cursor()
     reset(c)
 #    add_user(c, 1, "Mr. Kats", "qwerty")
