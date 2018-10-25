@@ -4,9 +4,12 @@
 {% endblock %}
 
 {% block content %}
+<!-- form to choose which story to edit -->
+<center>
        <form action = "/edit" method="POST">
 	 choose a story to edit:
 	 <br>
+	   <!-- loops through all stories you haven't contributed to and shows their titles--> 
 	 {% for key, value in stories.items() %}
 	 <input type="radio" name="storyid" value={{key}}> {{value}}
 	 <br>
@@ -16,5 +19,7 @@
 	 
 
        </form>
+</center>
+
        
     {% endblock %}

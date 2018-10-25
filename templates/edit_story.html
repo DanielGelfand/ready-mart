@@ -4,11 +4,15 @@
 {% endblock %}
 
 {% block content %}
-    Edit: <br><br>
+<center>
+Edit: <br><br>
+Title: {{story[1]}} <br>
+  <!-- form to edit a story-->
     <form action="/userHome" method="POST">
-      Title: <input type="text" name="title" value="{{story[1]}}"> <br>
       Content: <input type="text" name="content" value="{{story[2]}}"> <br>
       <input type="hidden" name="storyid" value="{{story[0]}}">=
       Create: <input type="submit" name="create"> <br>
     </form>
+</center>
+
     {% endblock %}
