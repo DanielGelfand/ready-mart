@@ -69,7 +69,7 @@ def register():
 
 @app.route("/userHome")
 def userHome():
-    return render_template("userHome.html",username = session["user"],stories = {'1':'title1','2':'title2'})
+    return render_template("userHome.html",username = session["user"])
 
 @app.route("/add",methods=["GET","POST"])
 def add():
@@ -87,15 +87,13 @@ def add():
         dbtools.add_story(c,id+1,contrib,currID,title)
         db.commit()
         db.close()
-        # put all the code to handle what you want with creating a story here
-        # after you do all that code just redirect to userHome or something
         return redirect(url_for('userHome'))
 
     return render_template("add_story.html")
 
 @app.route("/choose")
 def edit():
-    return render_template("edit_stories.html", stories = {'1':'title1','2':'title2'}) 
+    return render_template("edit_stories.html", stories = {'1':'title1','2':'title2'})
 
 
 @app.route("/edit", methods=["POST"])
@@ -105,7 +103,7 @@ def edit_story():
 
 @app.route("/view/<int:storyid>")
 def view(storyid):
-    return render_template("view_story.html") 
+    return render_template("view_story.html")
 
 @app.route("/logout")
 def logout():
