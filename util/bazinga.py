@@ -30,7 +30,7 @@ def title_story(squul, storyid):
 # updates last edit and content of story to reflect edit.
 # also updates history to show user has edited story
 
-# TODO: parse the story text for html/sql trickery
+# TODO: parse the story text for sql trickery (?)
 
 def edit_story(squul, storyid, shrext, userid):
     if can_edit(squul, storyid, userid):
@@ -44,9 +44,16 @@ def can_edit(squul, storyid, userid):
     squul.execute("SELECT {} FROM history WHERE history.storyid =  {};".format('u' + str(userid), storyid))
     return squul.fetchall()[0][0] == 0
 
+# returns titles and storyids of all stories a user can edit
 def all_edit(squul, userid):
     squul.execute("SELECT stories.storyid, stories.title FROM stories INNER JOIN history ON stories.storyid = history.storyid WHERE history.{} = 0;".format('u' + str(userid)))
     return(squul.fetchall())
+
+# returns titles and storyids of all stories a user CANT edit
+def not_edit(squul, userid):
+    squul.execute("SELECT stories.storyid, stories.title FROM stories INNER JOIN history ON stories.storyid = history.storyid WHERE history.{} = 1;".format('u' + str(userid)))
+    return(squul.fetchall())
+
 # creates a new story info in stories and history table
 
 # TODO: currently, people editing story will be unable to see title -- is this our prefered functionality??
