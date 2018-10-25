@@ -69,7 +69,7 @@ def register():
 
 @app.route("/userHome")
 def userHome():
-    return render_template("userHome.html",username = session["user"])
+    return render_template("userHome.html",username = session["user"],stories = {'1':'title1','2':'title2'})
 
 @app.route("/add",methods=["GET","POST"])
 def add():
@@ -102,13 +102,10 @@ def edit():
 def edit_story():
     return render_template("edit_story.html", story = ['storyid1','story_title','story_content'])
 
-@app.route("/stories",methods=["GET","POST"])
-def stories():
-    return render_template("view_stories.html", stories = {'1':'title1','2':'title2'})
 
 @app.route("/view/<int:storyid>")
 def view(storyid):
-    return render_template("view_story.html", story = ['storyid1','story_title','story_content']) 
+    return render_template("view_story.html") 
 
 @app.route("/logout")
 def logout():
