@@ -45,7 +45,7 @@ def can_edit(squul, storyid, userid):
     return squul.fetchall()[0][0] == 0
 
 def all_edit(squul, userid):
-    squul.execute("SELECT * FROM stories INNER JOIN history ON stories.storyid = history.storyid WHERE history.{} = 0;".format('u' + str(userid)))
+    squul.execute("SELECT stories.storyid, stories.title FROM stories INNER JOIN history ON stories.storyid = history.storyid WHERE history.{} = 0;".format('u' + str(userid)))
     return(squul.fetchall())
 # creates a new story info in stories and history table
 
