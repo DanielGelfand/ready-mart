@@ -41,12 +41,12 @@ def edit_story(squul, storyid, shrext, userid):
 # returns whether a user should be in editing mode for a particular story
 # decide whether to display editing mode of story, or which stories to list on users home page.
 def can_edit(squul, storyid, userid):
-    squul.execute("SELECT {} FROM history WHERE history.storyid = {};".format('u' + str(userid), storyid))
+    squul.execute("SELECT {} FROM history WHERE history.storyid =  {};".format('u' + str(userid), storyid))
     return squul.fetchall()[0][0] == 0
 
 def all_edit(squul, userid):
-    squul.execute("SELECT * FROM stories WHERE stories.storyid = history.storyid AND history.{} = 1;".format('u' + str(userid)))
-
+    squul.execute("SELECT * FROM stories INNER JOIN history ON stories.storyid = history.storyid WHERE history.{} = 0;".format('u' + str(userid)))
+    return(squul.fetchall())
 # creates a new story info in stories and history table
 
 # TODO: currently, people editing story will be unable to see title -- is this our prefered functionality??
@@ -85,7 +85,9 @@ if __name__ == "__main__":
     edit_story(c, 1, "wait i forgot to actually write a story", 1)
     add_user(c, 2, "Mr. Kats' alt account", "qwertzu")
     edit_story(c, 1, "i will circumvent this story editing restriction with an alt account", 2)
+    add_story(c, 3, ".", 2, "title 2")
     print(hole_story(c, 1))
+    
     print(all_edit(c, 1))
     db.commit()
     db.close()
