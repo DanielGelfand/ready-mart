@@ -1,4 +1,5 @@
 import sqlite3
+from passlib.hash import pbkdf2_sha256
 
 # Come to the computer interaction club. #
 #squul is cursor
@@ -65,7 +66,7 @@ def add_story(squul, storyid, shrext, userid, title):
 
 # creates entries for a new user, both for user and in history database
 def add_user(squul, userid, username, hashword):
-    squul.execute("INSERT INTO users VALUES(?, ?, ?);", (userid, foo_char_html(username), hashword))
+    squul.execute("INSERT INTO users VALUES(?, ?, ?);", (userid, foo_char_html(username), pbkdf2_sha256.hash(hashword[:32].encode("ascii", "replace"))))
     squul.execute("ALTER TABLE history ADD COLUMN {} INTEGER DEFAULT 0;".format('u' + str(userid)))
 # validates a username exists
 def user_exists(squul, user):
@@ -75,7 +76,7 @@ def user_exists(squul, user):
 # checks if user's password valid
 def check_user(squul, user, pword):
     toCheck = squul.execute("SELECT password from users WHERE username = ?;", (foo_char_html(user),))
-    return toCheck.fetchone()[0] == pword
+    return pbkdf2_sha256.verify(sha256_crypt(toCheck.fetchone()[0], hashword[:32].encode("ascii", "replace")))
 
 # string parsing for rude trickery
 def foo_char_html(inp):
@@ -93,6 +94,7 @@ if __name__ == "__main__":
     add_user(c, 2, "Mr. Kats' alt account", "qwertzu")
     edit_story(c, 1, "i will circumvent this story editing restriction with an alt account", 2)
     add_story(c, 3, ".", 2, "title 2")
+    print(check_user(squul, "Mr. Kats", "qwerty"))
     print(hole_story(c, 1))
     
     print(all_edit(c, 1))
