@@ -24,7 +24,7 @@ def hole_story(squul, storyid):
     squul.execute("SELECT content, lastedit FROM stories WHERE stories.storyid = ?;", (storyid, ))
     return '\n'.join(str(i) for i in squul.fetchall()[0] if i != None)
 
-# retrieve story title 
+# retrieve story title
 def title_story(squul, storyid):
     squul.execute("SELECT title FROM stories WHERE stories.storyid = ?;", (storyid, ))
     return squul.fetchall()[0][0]
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     add_story(c, 3, ".", 2, "title 2")
     print(check_user(squul, "Mr. Kats", "qwerty"))
     print(hole_story(c, 1))
-    
+
     print(all_edit(c, 1))
     db.commit()
     db.close()

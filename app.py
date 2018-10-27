@@ -80,10 +80,7 @@ def add():
         c = db.cursor()
         forID = c.execute("SELECT storyid FROM stories ORDER BY storyid DESC LIMIT 1")
         id = forID.fetchone()[0]
-        #print(session["user"])
-        #val = session["user"]
         currID = c.execute("SELECT userid FROM users WHERE username = ?",(session["user"],)).fetchone()[0]
-        print(currID)
         dbtools.add_story(c,id+1,contrib,currID,title)
         db.commit()
         db.close()
@@ -91,14 +88,34 @@ def add():
 
     return render_template("add_story.html")
 
-@app.route("/choose")
+@app.route("/choose", methods = ["POST","GET"])
 def edit():
-    return render_template("edit_stories.html", stories = {'1':'title1','2':'title2'})
+    # this should send the user to the edit_story html page
+    #if request.method == "POST":
+        # render edit_story with the appropriate parameters
+    #else:
+        return render_template("edit_stories.html", stories = {'1':'title1','2':'title2'})
 
 
-@app.route("/edit", methods=["POST"])
-def edit_story():
-    return render_template("edit_story.html", story = ['storyid1','story_title','story_content'])
+@app.route("/edit", methods=["POST","GET"])
+def edit_story(storyID):
+    db = sqlite3.connect("stories.db")
+    c = db.cursor()
+    title = dbtools.title_story(c,storyID)
+    content = dbtools.last_story(c,storyID)
+    if request.method == "POST":
+        contrib = request.form["content"]
+        userID = c.execute("SELECT userid FROM users WHERE username = ?",(session["user"],)).fetchone()[0]
+        dbtools.edit_story(c,storyID,contrib,userID)
+        db.commit()
+        db.close()
+        return render_template("userHome")
+    else:
+        db.commit()
+        db.close()
+        return render_template("edit_story.html",[storyID,title,content])
+
+    #return render_template("edit_story.html", story = ['storyid1','story_title','story_content'])
 
 
 @app.route("/view/<int:storyid>")
