@@ -74,9 +74,9 @@ def user_exists(squul, user):
     return exist.fetchone()[0] == 1
 
 # checks if user's password valid
-def check_user(squul, user, pword):
+def check_user(squul, user, hashword):
     toCheck = squul.execute("SELECT password from users WHERE username = ?;", (foo_char_html(user),))
-    return pbkdf2_sha256.verify(sha256_crypt(toCheck.fetchone()[0], hashword[:32].encode("ascii", "replace")))
+    return pbkdf2_sha256.verify(hashword[:32].encode("ascii", "replace"), toCheck.fetchone()[0])
 
 # string parsing for rude trickery
 def foo_char_html(inp):
@@ -94,9 +94,10 @@ if __name__ == "__main__":
     add_user(c, 2, "Mr. Kats' alt account", "qwertzu")
     edit_story(c, 1, "i will circumvent this story editing restriction with an alt account", 2)
     add_story(c, 3, ".", 2, "title 2")
-    print(check_user(squul, "Mr. Kats", "qwerty"))
+    print(check_user(c, "Mr. Kats", "qwerty"))
     print(hole_story(c, 1))
-
+    c.execute("SELECT username, password FROM users;")
+    print(c.fetchall())
     print(all_edit(c, 1))
     db.commit()
     db.close()
