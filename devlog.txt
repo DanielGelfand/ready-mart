@@ -136,4 +136,6 @@ narangA -- 2018-10-27 17:49
 theodoreP -- 2018-10-27 18:35
 --------------------------------------------------------------
     wrote an interesting and humourous devlog entry to convey the fact that user passwords are now hashed.
+         -- 2018-10-27 22:55
+    docstrings for bazinga functions
 ==============================================================
