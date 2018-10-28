@@ -4,15 +4,19 @@
 {% endblock %}
 
 {% block content %}
-<center>
-Edit: <br><br>
-Title: {{story[1]}} <br>
+<h1> Edit a story </h1>
+Title: <strong>{{title}}</strong>
+<br>
+Previous Contribution: {{contrib}}
   <!-- form to edit a story-->
-    <form action="/userHome" method="POST">
-      Content: <input type="text" name="content" value="{{story[2]}}"> <br>
-      <input type="hidden" name="storyid" value="{{story[0]}}">=
-      Create: <input type="submit" name="create"> <br>
+    <form action="/edit" method="POST" id="edit">
+      <h4> Enter your contribution here: </h4>
+      <input name="storyID" type="hidden" value={{id}}>
+      <textarea name="content" rows="10" cols="80" form="edit"></textarea>
+      <br>
+      <input type="submit" name="submit">
     </form>
-</center>
+    <a href="choose">Click here to pick a different story</a>
+    <br>
 
     {% endblock %}

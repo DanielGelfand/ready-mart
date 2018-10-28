@@ -5,21 +5,13 @@
 
 {% block content %}
 <!-- form to choose which story to edit -->
-<center>
-       <form action = "/edit" method="POST">
-	 choose a story to edit:
-	 <br>
-	   <!-- loops through all stories you haven't contributed to and shows their titles--> 
-	 {% for key, value in stories.items() %}
-	 <input type="radio" name="storyid" value={{key}}> {{value}}
-	 <br>
+   <form action="/editPage" method="POST">
+	 <h1>Choose a story to edit: </h1>
+	   <!-- loops through all stories you haven't contributed to and shows their titles-->
+	 {% for story in storyList %}
+	 <input type="radio" name="storyID" value={{story[0]}}>{{story[1]}}
+   <br>
 	 {% endfor %}
 	 <input type="submit" name="edit">
-	 
-	 
-
-       </form>
-</center>
-
-       
+   </form>
     {% endblock %}

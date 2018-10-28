@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-<center> 
+<center>
   <!-- form for usename and password -->
   <h2>Login</h2>
   <form method="POST">
@@ -17,7 +17,9 @@
   {% for each in msgs %}
   {% if each %}
     <strong> Uh oh there was an error, you typed in a {{each}}</strong>
-  {% endif %} 
+  {% endif %}
     {% endfor %}
     </center>
+  {% endblock %}
+  {% block footer %}
   {% endblock %}
