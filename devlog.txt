@@ -103,7 +103,7 @@ theodoreP -- 2018-10-22 10:16
    (for linux only, if anyone using a mac/pc would like to document how they got venv working, go ahead)
    comments to sql helper functions
 
-   TODO -- parse user input for html/sql trickery
+   TODO -- parse user input for html/sql trickery (looks like this gets handled by sql's argument formatting and jinja)
         -- currently, editors will be unable to see story title, only visible when reading story.
 	   create a seperate field for title in database? (done.)
 ==============================================================
@@ -157,4 +157,9 @@ Added comments to code, needs docstring added soon
 narangA -- 2018-10-28 18:26
 --------------------------------------------------------------
 Docstringged it up!
+==============================================================
+
+theodoreP -- 2018-10-28 19:44
+--------------------------------------------------------------
+    specificity for passlib use
 ==============================================================
