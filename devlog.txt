@@ -148,3 +148,8 @@ rayO -- 2018-10-27 23:57
 -Modified templates to accomodate features listed above
 -Added some code to make sure no user can cause errors by typing directly into the url to access pages they are not supposed to (not 100% done testing)
 ==============================================================
+
+rayO -- 2018-10-28 00:26
+--------------------------------------------------------------
+Added comments to code, needs docstring added soon
+==============================================================
