@@ -2,20 +2,20 @@ from flask import Flask, request, render_template, session, redirect, url_for,fl
 from os import urandom
 import util.bazinga as dbtools
 import sqlite3
-
+'''This code is the python behind our app'''
 app = Flask(__name__)
 app.secret_key = urandom(32)
 
 @app.route("/")
 def home():
-    #if the user is logged in, redirect them to userHome
+    '''This function sends the user to either their home page if they're signed in or the generaal log-in page if they're not'''
     if "user" in session:
         return redirect(url_for('userHome'))
-    #otherwise redirect them to the landing page
     return render_template("landing.html")
 
 @app.route("/login",methods=["GET","POST"])
 def login():
+    '''This function logins the user'''
     db = sqlite3.connect('stories.db')
     c = db.cursor()
     error = ""
@@ -46,6 +46,7 @@ def login():
 
 @app.route("/register",methods=["GET","POST"])
 def register():
+    '''This function lets the user register'''
     db = sqlite3.connect('stories.db')
     c = db.cursor()
     error = ""
@@ -83,6 +84,7 @@ def register():
 
 @app.route("/userHome")
 def userHome():
+    '''This is the home page for a signed-in user.'''
     #checks if the user is not logged in
     if "user" not in session:
         #flashes the error messsage below if they are not logged in
@@ -98,6 +100,7 @@ def userHome():
 
 @app.route("/add",methods=["GET","POST"])
 def add():
+    '''This function facilitates adding a story'''
     if request.method == "POST":
         title = request.form["title"]
         contrib = request.form["content"]
@@ -124,6 +127,7 @@ def add():
 
 @app.route("/choose")
 def edit():
+    '''This function facilitates choosing a story to edit'''
     #checks if the user is not logged in
     if "user" not in session:
         #flashes the error messsage below if they are not logged in
@@ -141,6 +145,7 @@ def edit():
 
 @app.route("/edit", methods=["POST","GET"])
 def edit_story():
+    '''This function facilitates editing a story'''
     db = sqlite3.connect("stories.db")
     c = db.cursor()
     if request.method == "POST":
@@ -168,6 +173,7 @@ def edit_story():
 
 @app.route("/editPage", methods=["POST","GET"])
 def editPage():
+    '''This page also facilitates editing a story'''
     db = sqlite3.connect("stories.db")
     c = db.cursor()
     if request.method == "POST":
@@ -189,6 +195,7 @@ def editPage():
 
 @app.route("/view/<int:storyid>")
 def view(storyid):
+    '''This function facilitates viewing stories'''
     #checks if the user is not logged in
     if "user" not in session:
         #flashes the error messsage below if they are not logged in
@@ -209,6 +216,7 @@ def view(storyid):
 
 @app.route("/logout")
 def logout():
+    '''This function logs out the user'''
     #removes the user from the session
     session.pop("user")
     #redirects back to the home page
