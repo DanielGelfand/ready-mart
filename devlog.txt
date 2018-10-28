@@ -144,7 +144,7 @@ rayO -- 2018-10-27 23:57
 --------------------------------------------------------------
 -Fixed Amit's editing story feature and implemented viewing editable stories
 -Implemented viewing stories contributed to
--Added some code to make sure no user can cause errors by typing directly into the url to access pages they are not supposed to (not 100% done testing)
--Fixed up templates to accomodate features listed above
 -Added footer with link to home page
+-Modified up templates to accomodate features listed above
+-Added some code to make sure no user can cause errors by typing directly into the url to access pages they are not supposed to (not 100% done testing)
 ==============================================================
