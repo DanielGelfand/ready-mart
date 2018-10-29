@@ -177,3 +177,9 @@ rayO -- 2018-10-28 23:27
 -Minor changes to docstring in app.py
 -Fixed footer being in obscure locations on some pages
 ==============================================================
+
+rayO -- 2018-10-28 23:38
+--------------------------------------------------------------
+-Added code to check if the user has contributed to any stories
+-Minor changes to logout in app.py
+==============================================================
