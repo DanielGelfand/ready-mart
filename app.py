@@ -6,6 +6,8 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = urandom(32)
 
+DB_FILE = "data/stories.db"
+
 @app.route("/")
 def home():
     '''This function sends the user to either their home page if they're signed in or the generaal log-in page if they're not'''
@@ -15,8 +17,8 @@ def home():
 
 @app.route("/login",methods=["GET","POST"])
 def login():
-    '''This function logins the user'''
-    db = sqlite3.connect('stories.db')
+    '''This function facilitates logging in.'''
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     error = ""
     if request.method == 'POST':
@@ -47,7 +49,7 @@ def login():
 @app.route("/register",methods=["GET","POST"])
 def register():
     '''This function lets the user register'''
-    db = sqlite3.connect('stories.db')
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     error = ""
     if request.method == 'POST':
@@ -90,7 +92,7 @@ def userHome():
         #flashes the error messsage below if they are not logged in
         flash("You tried to access the user home page without being logged in! If you wish to access this feature, log in or register an account first!")
         return redirect(url_for('home'))
-    db = sqlite3.connect("stories.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     #gets the userid of the user in session
     userID = c.execute("SELECT userid FROM users WHERE username = ?",(session["user"],)).fetchone()[0]
@@ -104,7 +106,7 @@ def add():
     if request.method == "POST":
         title = request.form["title"]
         contrib = request.form["content"]
-        db = sqlite3.connect('stories.db')
+        db = sqlite3.connect(DB_FILE)
         c = db.cursor()
         #fetches id of most recently added story
         forID = c.execute("SELECT storyid FROM stories ORDER BY storyid DESC LIMIT 1")
@@ -133,7 +135,7 @@ def edit():
         #flashes the error messsage below if they are not logged in
         flash("You tried to access the edit page without being logged in! If you wish to access this feature, log in or register an account first!")
         return redirect(url_for('home'))
-    db = sqlite3.connect("stories.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     #gets userid of current user in session
     userID = c.execute("SELECT userid FROM users WHERE username = ?",(session["user"],)).fetchone()[0]
@@ -145,8 +147,8 @@ def edit():
 
 @app.route("/edit", methods=["POST","GET"])
 def edit_story():
-    '''This function facilitates editing a story'''
-    db = sqlite3.connect("stories.db")
+    '''This function handles the editing of the story'''
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     if request.method == "POST":
         storyID = request.form["storyID"]
@@ -173,8 +175,8 @@ def edit_story():
 
 @app.route("/editPage", methods=["POST","GET"])
 def editPage():
-    '''This page also facilitates editing a story'''
-    db = sqlite3.connect("stories.db")
+    '''This function displays to the user the title and previous contribution to the story in question and allows them to input their own contribution'''
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     if request.method == "POST":
         storyID = request.form["storyID"]
@@ -201,7 +203,7 @@ def view(storyid):
         #flashes the error messsage below if they are not logged in
         flash("You tried to view a story without being logged in! If you wish to access this feature, log in or register an account first!")
         return redirect(url_for('home'))
-    db = sqlite3.connect("stories.db")
+    db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     userID = c.execute("SELECT userid FROM users WHERE username = ?",(session["user"],)).fetchone()[0]
     #fetches the entire story using hole_story

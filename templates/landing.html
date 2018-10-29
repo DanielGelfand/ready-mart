@@ -1,20 +1,24 @@
 {% extends "base.html" %}
 {% block head %}
-<title>MART</title>
+  <title>MART</title>
 {% endblock %}
+
 <!-- template for the landing page, users can either login or register  -->
 {% block content %}
-<center>
-  {% set msgs = get_flashed_messages() %}
-  {% for each in msgs %}
-  {% if each %}
-  <strong> {{each}}</strong><br> <br>
-  {% endif %}
-  {% endfor %}
-  <h1>Welcome to our stories!</h1>
-  <a href="/login">Login</a><br>
-  <a href="/register">Sign up!</a>
-</center>
+  <center>
+    <!-- Checks for error messages and displays if an error is encountered -->
+    {% set msgs = get_flashed_messages() %}
+    {% for each in msgs %}
+      {% if each %}
+        <strong> {{each}}</strong><br> <br>
+      {% endif %}
+    {% endfor %}
+
+    <h1>Welcome to our stories!</h1>
+    <a href="/login">Login</a><br>
+    <a href="/register">Sign up!</a>
+  </center>
 {% endblock %}
+
 {% block footer %}
 {% endblock %}

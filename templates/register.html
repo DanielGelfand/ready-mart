@@ -6,6 +6,7 @@
 {% block content %}
 <center>
   <h2> Register an account </h2>
+
   <!-- form to register an account -->
   <form action="/register" method="POST">
     Username: <input type="text" name="username"> <br>
@@ -13,14 +14,16 @@
     Confirm password <input type="password" name="password2"> <br>
     <input type="submit" name="register">
   </form>
-  <!-- error message jinja, displays error in case of existing user or non matching passwords -->
+
+  <!-- Displays error in case of existing user or non matching passwords -->
   {% set msgs = get_flashed_messages() %}
-  {% for each in msgs %}
-  {% if each %}
-  <strong> Uh oh there was an error, {{each}}</strong>
-  {% endif %}
+    {% for each in msgs %}
+      {% if each %}
+        <strong> Uh oh there was an error, {{each}}</strong>
+        {% endif %}
   {% endfor %}
 </center>
 {% endblock %}
+
 {% block footer %}
 {% endblock %}

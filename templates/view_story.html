@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 {% block head %}
-<title>Story</title>
+  <title>Story</title>
 {% endblock %}
+
 <!-- Shows the title and content of the story -->
 {% block content %}
-<center>
-  <h3>{{title}}</h3><br>
-  {{story}}
-</center>
+  <center>
+    <h3> Title: {{title}}</h3><br>
+
+    <p> <strong>Content:</strong> {{story}} </p>
+  </center>
+{% endblock %}
+
+{% block footer %}
+  <center>
+    <a href="/">Back to home</a>
+  </center>
 {% endblock %}

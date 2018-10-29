@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 {% block head %}
-<title>Edit Stories</title>
+  <title>Edit Stories</title>
 {% endblock %}
 
 {% block content %}
-<!-- form to choose which story to edit -->
-<form action="/editPage" method="POST">
   <h1>Choose a story to edit: </h1>
-  <!-- loops through all stories you haven't contributed to and shows their titles-->
-  {% for story in storyList %}
-  <input type="radio" name="storyID" value={{story[0]}}>{{story[1]}}<br>
-  {% endfor %}
-  <input type="submit" name="edit">
-</form>
-{% endblock %}
 
+  <!-- form to choose which story to edit -->
+  <form action="/editPage" method="POST">
+    <!-- loops through all stories you haven't contributed to and shows their titles-->
+    {% if storyList %}
+      {% for story in storyList %}
+        <input type="radio" name="storyID" value={{story[0]}}>{{story[1]}}<br><br>
+      {% endfor %}
+      <input type="submit" name="edit">
+    {% endif %}
+
+    {% if not storyList %}
+      There are no more stories you can contribute to. Create a new story or wait for another user to contribute a new story!
+    {% endif %}
+  </form>
+  <br>
+{% endblock %}

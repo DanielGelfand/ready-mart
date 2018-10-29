@@ -1,25 +1,28 @@
 {% extends "base.html" %}
 {% block head %}
-<title>Login</title>
+  <title>Login</title>
 {% endblock %}
 
 {% block content %}
-<center>
-  <!-- form for usename and password -->
-  <h2>Login</h2>
-  <form method="POST">
-    Username: <input type="text" name="username"> <br>
-    Password: <input type="password" name="password"> <br>
-    <input type="submit" name="login">
-  </form>
-  <!-- error message jinja, displays error  in case of wrong password or username-->
-  {% set msgs = get_flashed_messages() %}
-  {% for each in msgs %}
-  {% if each %}
-  <strong> Uh oh there was an error, you typed in a {{each}}</strong>
-  {% endif %}
-  {% endfor %}
-</center>
+  <center>
+    <h2>Login</h2>
+
+    <!-- form for usename and password -->
+    <form method="POST">
+      Username: <input type="text" name="username"> <br>
+      Password: <input type="password" name="password"> <br>
+      <input type="submit" name="login">
+    </form>
+
+    <!-- Displays error in case of wrong password or username-->
+    {% set msgs = get_flashed_messages() %}
+    {% for each in msgs %}
+      {% if each %}
+        <strong> Uh oh there was an error, you typed in a {{each}}</strong>
+      {% endif %}
+    {% endfor %}
+  </center>
 {% endblock %}
+
 {% block footer %}
 {% endblock %}

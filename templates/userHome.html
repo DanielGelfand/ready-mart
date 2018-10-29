@@ -5,25 +5,32 @@
 
 {% block content %}
 <center>
-  <!-- dispays error in case a user tries to access the profile page without being logged in -->
+  <!-- Checks for error messages and displays if an error is encountered -->
+  <!-- Also used to show success messages, e.g. story successfully created -->
   {% set msgs = get_flashed_messages() %}
   {% for each in msgs %}
-  {% if each %}
-  <strong> {{each}}</strong><br><br>
-  {% endif %}
+    {% if each %}
+      <strong> {{each}}</strong><br><br>
+    {% endif %}
   {% endfor %}
+
   Welcome <strong>{{username}}</strong> <br><br>
+
   <h2>Stories contributed to: </h2>
+
   <!-- shows titles of stories you've contributed to -->
   <!-- loops through stories you've contributed to and shows their titles-->
+  <!-- story[0] is the id, story[1] is the title -->
   {% for story in storyList %}
-  <a href="/view/{{story[0]}}">{{story[1]}}</a><br>
+    <a href="/view/{{story[0]}}">{{story[1]}}</a><br>
   {% endfor %}
+
   <h2> Contribute more stories using the two options below! </h2>
   <!-- Link to create a new story  -->
   <a href="/add">Create a new story!</a><br><br>
   <!-- Link to edit a story you haven't contributed to -->
   <a href="/choose">Add to an existing story</a><br><br>
+
   <form action="/logout">
     <input type="submit" value="Logout">
   </form>
