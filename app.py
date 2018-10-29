@@ -170,7 +170,7 @@ def edit_story():
         flash("You tried to access the edit page without being logged in! If you wish to access this feature, log in or register an account first!")
         return redirect(url_for('home'))
     #in case of a user typing localhost:5000/edit, displays the error below
-    flash("You tried to access /edit. If you wish to edit a story, please click on Add to an existing story if you wish to add to a storym")
+    flash("You tried to access /edit. If you wish to edit a story, please click on Add to an existing story if you wish to add to a story.")
     return redirect(url_for('userHome'))
 
 @app.route("/editPage", methods=["POST","GET"])

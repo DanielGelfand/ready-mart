@@ -183,3 +183,9 @@ rayO -- 2018-10-28 23:38
 -Added code to check if the user has contributed to any stories
 -Minor changes to logout in app.py
 ==============================================================
+
+narangA -- 2018-10-29 0:20
+--------------------------------------------------------------
+-Added Login/Register Hyperlinks to the bottom
+-Minor changes to app.py
+==============================================================
