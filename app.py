@@ -218,6 +218,11 @@ def view(storyid):
 
 @app.route("/logout")
 def logout():
+    #checks if the user is not logged in
+    if "user" not in session:
+        #flashes the error messsage below if they are not logged in
+        flash("You tried to log out without being logged in. If you are seeing this message, please do not type directly into the address bar, navigate via our website instead.")
+        return redirect(url_for('home'))
     '''This function logs out the user'''
     #removes the user from the session
     session.pop("user")

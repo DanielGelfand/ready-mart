@@ -21,9 +21,15 @@
   <!-- shows titles of stories you've contributed to -->
   <!-- loops through stories you've contributed to and shows their titles-->
   <!-- story[0] is the id, story[1] is the title -->
-  {% for story in storyList %}
-    <a href="/view/{{story[0]}}">{{story[1]}}</a><br>
-  {% endfor %}
+  {% if storyList %}
+    {% for story in storyList %}
+      <a href="/view/{{story[0]}}">{{story[1]}}</a><br>
+    {% endfor %}
+  {% endif %}
+
+  {% if not storyList %}
+    You haven't contributed to any stories yet. Get started by creating a new story or adding to an existing one!
+  {% endif %}
 
   <h2> Contribute more stories using the two options below! </h2>
   <!-- Link to create a new story  -->
