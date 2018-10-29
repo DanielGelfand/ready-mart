@@ -4,38 +4,30 @@
 {% endblock %}
 
 {% block content %}
-
 <center>
+  <!-- dispays error in case a user tries to access the profile page without being logged in -->
   {% set msgs = get_flashed_messages() %}
   {% for each in msgs %}
   {% if each %}
-    <strong> {{each}}</strong>
-    <br>
-    <br>
+  <strong> {{each}}</strong><br><br>
   {% endif %}
   {% endfor %}
-    Welcome <strong>{{username}}</strong> <br><br>
-<h2>Stories contributed to: </h2>
-<!-- shows titles of stories you've contributed to -->
-<!-- loops through stories you've contributed to and shows their titles-->
-{% for story in storyList %}
-    <a href="/view/{{story[0]}}">{{story[1]}}</a><br>
-{% endfor %}
-
-<h2> Contribute more stories using the two options below! </h2>
-    <!-- Link to create a new story  -->
-    <a href="/add">Create a new story!</a>
-    <br>
-    <br>
-    <!-- Link to edit a story -->
-    <a href="/choose">Add to an existing story</a>
-    <br>
-    <br>
-    <form action="/logout">
-      <input type="submit" value="Logout">
-    </form>
+  Welcome <strong>{{username}}</strong> <br><br>
+  <h2>Stories contributed to: </h2>
+  <!-- shows titles of stories you've contributed to -->
+  <!-- loops through stories you've contributed to and shows their titles-->
+  {% for story in storyList %}
+  <a href="/view/{{story[0]}}">{{story[1]}}</a><br>
+  {% endfor %}
+  <h2> Contribute more stories using the two options below! </h2>
+  <!-- Link to create a new story  -->
+  <a href="/add">Create a new story!</a><br><br>
+  <!-- Link to edit a story you haven't contributed to -->
+  <a href="/choose">Add to an existing story</a><br><br>
+  <form action="/logout">
+    <input type="submit" value="Logout">
+  </form>
 </center>
 {% endblock %}
 {% block footer %}
-
 {% endblock %}

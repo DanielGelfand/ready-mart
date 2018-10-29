@@ -5,12 +5,10 @@
 
 {% block content %}
 <center>
- <!-- loops through stories you've contributed to and shows their titles-->
-Stories you've countribited to: <br>
-{% for key, value in stories.items() %}
-    <a href="/view/{{key}}"> {{value}} </a>
-    <br>
+  <!-- loops through stories you've contributed to by matching the userid associted with the story and shows their titles-->
+  Stories you've countribited to: <br>
+  {% for key, value in stories.items() %}
+  <a href="/view/{{key}}"> {{value}} </a><br>
 </center>
 {% endfor %}
-
-    {% endblock %}
+{% endblock %}

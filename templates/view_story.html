@@ -2,11 +2,10 @@
 {% block head %}
 <title>Story</title>
 {% endblock %}
-  <!-- Shows the content of the story -->
-  {% block content %}
-  <center>
-<h3>{{title}}</h3>
-<br>
-{{story}}
+<!-- Shows the title and content of the story -->
+{% block content %}
+<center>
+  <h3>{{title}}</h3><br>
+  {{story}}
 </center>
 {% endblock %}

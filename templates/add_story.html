@@ -4,14 +4,13 @@
 {% endblock %}
 
 {% block content %}
-    <h1> Create a story </h1>
-    <form action="/add" method="POST" id="add">
-      <h4> Title: </h4>
-      <input type="text" name="title">
-      <br>
-      <h4> Content: </h4> <textarea name="content" rows="10" cols="80" form="add"></textarea>
-      <br>
-      <input type="submit" name="create">
-      <br>
-    </form>
-    {% endblock %}
+<h1> Create a story </h1>
+<!-- form to add a new story. Input a title and the content of your story.--> 
+<form action="/add" method="POST" id="add">
+  <h4> Title: </h4>
+  <input type="text" name="title"><br>
+  <h4> Content: </h4> <textarea name="content" rows="10" cols="80" form="add"></textarea><br>
+  <input type="submit" name="create"> <br>
+</form>
+{% endblock %}
+
